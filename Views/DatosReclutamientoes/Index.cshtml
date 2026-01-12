@@ -6,8 +6,8 @@
 }
 
 @section Scripts {
-    <script src="~/js/reclutamientoOverlay.js"></script>
-    
+    <script src="~/js/ReclutamientoOverlay.js"></script>
+    <script src="~/js/ReclutamientoOverlayEdit.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }
 
@@ -72,7 +72,7 @@
                             <a asp-action="Datos" asp-route-id="@item.Id" title="Datos / Gráficas">
                                 <i class="bi bi-graph-up"></i>
                             </a>
-                            <a href="javascript:void(0)" onclick="ReclutamientoOverlay.edit(@item.Id)" title="Editar">
+                            <a href="javascript:void(0)" onclick="ReclutamientoOverlayEdit.edit(@item.Id)" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </a>
                             <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"
@@ -150,5 +150,4 @@
     </nav>
 }
 
-<!-- ===================== TEMPLATE OCULTO PARA CREATE ===================== -->
 @await Html.PartialAsync("_ReclutamientoCrearPartial")

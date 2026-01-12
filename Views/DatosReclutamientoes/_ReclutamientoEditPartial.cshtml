@@ -4,7 +4,10 @@
     <partial name="_ValidationScriptsPartial" />
 }
 
-<div class="reclutamiento-overlay show" id="reclutamientoOverlay">
+<div class="reclutamiento-overlay show"
+     id="reclutamientoOverlayEdit"
+     style="display:@(Model.MostrarModal ? "flex" : "none")">
+     
     <div class="reclutamiento-modal">
 
         <!-- HEADER -->
@@ -14,7 +17,7 @@
             </h5>
             <button type="button"
                     class="btn-close"
-                    onclick="ReclutamientoOverlay.close()">
+                    onclick="ReclutamientoOverlayEdit.close()">
             </button>
         </div>
 
@@ -138,7 +141,7 @@
             -->
 
             <div class="modal-footer mt-4">
-                <button type="button" class="btn btn-secondary" onclick="ReclutamientoOverlay.close()">
+                <button type="button" class="btn btn-secondary" onclick="ReclutamientoOverlayEdit.close()">
                     Cancelar
                 </button>
                 <button type="submit" class="btn btn-success">

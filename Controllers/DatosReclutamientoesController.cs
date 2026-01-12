@@ -245,6 +245,9 @@ namespace RecursosHumanos.Controllers
                     new SelectListItem { Value = r.Id.ToString(), Text = r.NombreCompleto })
             };
 
+
+
+
             return PartialView("_ReclutamientoEditPartial", vm);
         }
 
@@ -260,12 +263,33 @@ namespace RecursosHumanos.Controllers
         public async Task<IActionResult> Edit([Bind(Prefix = "Nuevo")] DatosReclutamiento model)
         {
             if (!ModelState.IsValid)
-                return RedirectToAction(nameof(Index));
+            {
+                var vm = new ReclutamientoIndexVM
+                {
+                    Nuevo = model,
+                    MostrarModal = true,
+                    Empresas = _context.Empresas.Select(e =>
+                        new SelectListItem { Value = e.Id.ToString(), Text = e.Empresa1 }),
+                    Bases = _context.Bases.Select(b =>
+                        new SelectListItem { Value = b.Id.ToString(), Text = b.Base1 }),
+                    Fuentes = _context.Fuentes.Select(f =>
+                        new SelectListItem { Value = f.Id.ToString(), Text = f.Fuente1 }),
+                    Estatus = _context.Estatuses.Select(e =>
+                        new SelectListItem { Value = e.Id.ToString(), Text = e.Estatus1 }),
+                    Posiciones = _context.Posicions.Select(p =>
+                        new SelectListItem { Value = p.Id.ToString(), Text = p.Posicion1 }),
+                    Sexos = _context.Sexos.Select(s =>
+                        new SelectListItem { Value = s.Id.ToString(), Text = s.Sexo1 }),
+                    Reclutadores = _context.Reclutadors.Select(r =>
+                        new SelectListItem { Value = r.Id.ToString(), Text = r.NombreCompleto })
+                };
+
+                return View("Index", vm);
+            }
 
             var entity = await _context.DatosReclutamientos.FindAsync(model.Id);
             if (entity == null) return NotFound();
 
-            // Copias SOLO lo editable
             entity.NombreCompleto = model.NombreCompleto;
             entity.Telefono = model.Telefono;
             entity.Comentarios = model.Comentarios;
@@ -276,9 +300,9 @@ namespace RecursosHumanos.Controllers
             entity.IdPosicion = model.IdPosicion;
             entity.IdSexo = model.IdSexo;
             entity.IdReclutador = model.IdReclutador;
-            entity.FechaCreación= DateTime.Now;
 
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
