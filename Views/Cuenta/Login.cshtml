@@ -1,0 +1,57 @@
+﻿@model RecursosHumanos.Models.ViewModels.LoginViewModelscs
+
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LayoutLogin";
+}
+
+<div class="login-card">
+
+    <div class="login-icon">
+        <i class="bi bi-person"></i>
+    </div>
+
+    <form asp-action="Login" method="post" id="loginForm" class="mt-4">
+
+        <div class="mb-3 input-group">
+            <span class="input-group-text">
+                <i class="bi bi-person"></i>
+            </span>
+            <input asp-for="Username" class="form-control" placeholder="Usuario" />
+        </div>
+        <span asp-validation-for="Username" class="text-danger"></span>
+
+        <div class="mb-3 input-group">
+            <span class="input-group-text">
+                <i class="bi bi-lock"></i>
+            </span>
+            <input asp-for="Password" type="password" class="form-control" placeholder="Contraseña" />
+        </div>
+        <span asp-validation-for="Password" class="text-danger"></span>
+
+        <div class="form-check mb-3">
+            <input asp-for="RememberMe" class="form-check-input" />
+            <label asp-for="RememberMe" class="form-check-label">
+                Recordarme
+            </label>
+        </div>
+
+        <button type="submit" class="btn btn-login w-100">
+            <span>Ingresar</span>
+        </button>
+
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function () {
+            const btn = this.querySelector(".btn-login");
+            btn.classList.add("loading");
+        });
+    </script>
+}
