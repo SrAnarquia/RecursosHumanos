@@ -15,10 +15,13 @@ namespace RecursosHumanos.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+        #region builder
+
         public DatosReclutamientoesController(ApplicationDbContext context)
         {
             _context = context;
         }
+        #endregion
 
 
         #region Index
@@ -212,6 +215,38 @@ namespace RecursosHumanos.Controllers
 
         #endregion
 
+        #region Details (Overlay)
+        [HttpGet]
+        public async Task<IActionResult> DetailsPartial(int id)
+        {
+
+            var datos = await _context.DatosReclutamientos
+                .Include(d => d.IdBaseNavigation)
+                .Include(d => d.IdEmpresaNavigation)
+                .Include(d => d.IdEstatusNavigation)
+                .Include(d => d.IdFuenteNavigation)
+                .Include(d => d.IdPosicionNavigation)
+                .Include(d => d.IdReclutadorNavigation)
+                .Include(d => d.IdSexoNavigation)
+                .FirstOrDefaultAsync(x => x.Id ==id);
+
+            if (datos == null)
+                return NotFound();
+
+
+            var vm = new ReclutamientoDetailsVM
+            {
+                Datos = datos,
+                MostrarModal = true
+            };
+
+            return PartialView("_ReclutamientoDetailsPartial",vm);
+
+        }
+
+
+        #endregion
+
 
         #region Edit
         // GET: DatosReclutamientoes/Edit/5
@@ -307,7 +342,7 @@ namespace RecursosHumanos.Controllers
         #endregion
 
 
-
+        #region DeleteConfirm
         // POST: DatosReclutamientoes/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -328,7 +363,7 @@ namespace RecursosHumanos.Controllers
             return _context.DatosReclutamientos.Any(e => e.Id == id);
         }
 
-
+        #endregion
 
         #region Delete (Overlay)
 
@@ -352,6 +387,9 @@ namespace RecursosHumanos.Controllers
         }
 
         #endregion
+
+
+
 
 
     }

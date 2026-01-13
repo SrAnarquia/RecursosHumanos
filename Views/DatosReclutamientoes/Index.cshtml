@@ -9,6 +9,7 @@
     <script src="~/js/ReclutamientoOverlay.js"></script>
     <script src="~/js/ReclutamientoOverlayEdit.js"></script>
     <script src="~/js/ReclutamientoOverlayDelete.js"></script>
+    <script src="~/js/ReclutamientoOverlayDetails.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }
 
@@ -67,11 +68,12 @@
                         <td>@item.IdReclutadorNavigation?.NombreCompleto</td>
                         <td>@item.FechaContacto.ToString("dd/MM/yyyy")</td>
                         <td class="text-center actions">
-                            <a asp-action="Details"
-                               asp-route-id="@item.Id"
+                            <a href="javascript:void(0)"
+                               onclick="ReclutamientoOverlayDetails.open(@item.Id)"
                                title="Ver detalles">
                                 <i class="bi bi-eye"></i>
                             </a>
+
                             <a href="javascript:void(0)" onclick="ReclutamientoOverlayEdit.edit(@item.Id)" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </a>

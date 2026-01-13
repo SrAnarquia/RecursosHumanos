@@ -1,0 +1,100 @@
+﻿@model List<RecursosHumanos.Models.ViewModels.PersonalAlarmaVM>
+
+@section Styles {
+    <link href="~/css/styleReclutamiento.css" rel="stylesheet" />
+    <link href="~/css/styleReclutamientoPartial.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="~/js/ReclutamientoOverlayDetails.js"></script>
+}
+
+<!-- ===================== TÍTULO ===================== -->
+<div class="mb-4">
+    <h2 class="fw-bold">
+        <i class="bi bi-bell"></i> Alertas de Personal
+    </h2>
+</div>
+
+<!-- ===================== TABLA ===================== -->
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th class="text-center">Foto</th>
+                <th>Nombre</th>
+                <th>Departamento</th>
+                <th>Fecha Ingreso</th>
+                <th>Última Liquidación</th>
+                <th class="text-center">Días sin liquidar</th>
+                <th class="text-center">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <!-- FOTO -->
+                        <td class="text-center">
+                            @if (item.FotoPersonal != null)
+                            {
+                                var base64 = Convert.ToBase64String(item.FotoPersonal);
+                                <img src="data:image/jpeg;base64,@base64"
+                                     class="rounded-circle"
+                                     style="width:45px;height:45px;object-fit:cover;" />
+                            }
+                            else
+                            {
+                                <i class="bi bi-person-circle fs-3 text-muted"></i>
+                            }
+                </td>
+
+                <!-- DATOS -->
+                <td>@item.Nombre</td>
+                <td>@item.IdDepto</td>
+                <td>@item.FechaIngreso.ToString("dd/MM/yyyy")</td>
+
+                <td>
+                    @(item.FechaUltimaLiquidacion.HasValue
+                                        ? item.FechaUltimaLiquidacion.Value.ToString("dd/MM/yyyy")
+                                        : "—")
+                        </td>
+
+                        <!-- ALERTA -->
+                        <td class="text-center">
+                            @if (item.DiasDesdeUltimaLiquidacion.HasValue)
+                            {
+                                <span class="badge @(item.DiasDesdeUltimaLiquidacion > 30 ? "bg-danger" : "bg-warning text-dark")">
+                                    @item.DiasDesdeUltimaLiquidacion días
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary">Sin registro</span>
+                            }
+                        </td>
+
+                        <!-- ACCIONES -->
+                        <td class="text-center actions">
+                            <a asp-action="Details"
+                               asp-route-id="@item.IdPersonal"
+                               title="Ver detalles">
+                                <i class="bi bi-eye"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="7" class="text-center text-muted">
+                        No se encontraron registros
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

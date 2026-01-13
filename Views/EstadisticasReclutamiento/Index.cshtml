@@ -1,0 +1,97 @@
+﻿@model RecursosHumanos.Models.ViewModels.ReclutamientoEstadisticasVM
+
+@section Styles {
+    <link href="~/css/styleReclutamiento.css" rel="stylesheet" />
+}
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="~/js/ReclutamientoCharts.js"></script>
+
+    <script>
+        window.reclutamientoChartsData = {
+            meses: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Meses)),
+            contactadosPorMes: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ContactadosPorMes)),
+            contratadosPorMes: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ContratadosPorMes)),
+            fuentesLabels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.FuentesContratacion.Keys)),
+            fuentesData: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.FuentesContratacion.Values)),
+            noContratadosLabels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Keys)),
+            noContratadosData: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Values))
+        };
+    </script>
+}
+
+<div class="container-fluid">
+
+    <!-- ===================== TÍTULO ===================== -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>
+            <i class="bi bi-graph-up"></i> Estadísticas de Reclutamiento
+        </h2>
+    </div>
+
+    <!-- ===================== TARJETAS KPI ===================== -->
+    <div class="row mb-4">
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3">
+                <h6 class="text-muted">Total registros</h6>
+                <h3>@Model.TotalRegistros</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3">
+                <h6 class="text-muted">Contactados</h6>
+                <h3 class="text-primary">@Model.TotalContactados</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3">
+                <h6 class="text-muted">Contratados</h6>
+                <h3 class="text-success">@Model.TotalContratados</h3>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card shadow-sm text-center p-3">
+                <h6 class="text-muted">No contratados</h6>
+                <h3 class="text-danger">@Model.TotalNoContratados</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== GRÁFICAS ===================== -->
+    <div class="row g-4">
+
+        <!-- Gráfica 1 -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h6 class="mb-3">Contactados por mes</h6>
+                <canvas id="chartContactadosMes"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráfica 2 -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h6 class="mb-3">Contratados por mes</h6>
+                <canvas id="chartContratadosMes"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráfica 3 -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h6 class="mb-3">Fuentes de contratación</h6>
+                <canvas id="chartFuentes"></canvas>
+            </div>
+        </div>
+
+        <!-- Gráfica 4 -->
+        <div class="col-md-6">
+            <div class="card shadow-sm p-3">
+                <h6 class="mb-3">Razones de no contratación</h6>
+                <canvas id="chartNoContratados"></canvas>
+            </div>
+        </div>
+
+    </div>
+</div>
