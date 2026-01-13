@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -255,9 +256,7 @@ namespace RecursosHumanos.Controllers
         #endregion
 
 
-        // POST: DatosReclutamientoes/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        #region EditPost
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit([Bind(Prefix = "Nuevo")] DatosReclutamiento model)
@@ -305,36 +304,12 @@ namespace RecursosHumanos.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        #endregion
 
 
-
-        // GET: DatosReclutamientoes/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var datosReclutamiento = await _context.DatosReclutamientos
-                .Include(d => d.IdBaseNavigation)
-                .Include(d => d.IdEmpresaNavigation)
-                .Include(d => d.IdEstatusNavigation)
-                .Include(d => d.IdFuenteNavigation)
-                .Include(d => d.IdPosicionNavigation)
-                .Include(d => d.IdReclutadorNavigation)
-                .Include(d => d.IdSexoNavigation)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (datosReclutamiento == null)
-            {
-                return NotFound();
-            }
-
-            return View(datosReclutamiento);
-        }
 
         // POST: DatosReclutamientoes/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
@@ -353,7 +328,30 @@ namespace RecursosHumanos.Controllers
             return _context.DatosReclutamientos.Any(e => e.Id == id);
         }
 
-       
+
+
+        #region Delete (Overlay)
+
+        // GET: DatosReclutamientoes/DeletePartial/5
+        [HttpGet]
+        public async Task<IActionResult> DeletePartial(int id)
+        {
+            var datos = await _context.DatosReclutamientos
+            .FirstOrDefaultAsync(x => x.Id == id);
+
+            if (datos == null)
+                return NotFound();
+
+            var vm = new ReclutamientoDeleteVM
+            {
+                Datos = datos,
+                MostrarModal = true
+            };
+
+            return PartialView("_ReclutamientoDeletePartial", vm);
+        }
+
+        #endregion
 
 
     }

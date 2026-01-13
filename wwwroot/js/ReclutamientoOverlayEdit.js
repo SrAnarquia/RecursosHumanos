@@ -1,7 +1,6 @@
 ﻿const ReclutamientoOverlayEdit = {
     edit(id) {
 
-        // 🔴 Elimina cualquier modal previo
         document.getElementById('reclutamientoOverlayEdit')?.remove();
 
         fetch(`/DatosReclutamientoes/Edit/${id}`)

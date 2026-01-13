@@ -8,6 +8,7 @@
 @section Scripts {
     <script src="~/js/ReclutamientoOverlay.js"></script>
     <script src="~/js/ReclutamientoOverlayEdit.js"></script>
+    <script src="~/js/ReclutamientoOverlayDelete.js"></script>
     <partial name="_ValidationScriptsPartial" />
 }
 
@@ -66,17 +67,15 @@
                         <td>@item.IdReclutadorNavigation?.NombreCompleto</td>
                         <td>@item.FechaContacto.ToString("dd/MM/yyyy")</td>
                         <td class="text-center actions">
-                            <a asp-action="Portafolio" asp-route-id="@item.Id" title="Portafolio">
-                                <i class="bi bi-folder"></i>
-                            </a>
-                            <a asp-action="Datos" asp-route-id="@item.Id" title="Datos / Gráficas">
-                                <i class="bi bi-graph-up"></i>
+                            <a asp-action="Details"
+                               asp-route-id="@item.Id"
+                               title="Ver detalles">
+                                <i class="bi bi-eye"></i>
                             </a>
                             <a href="javascript:void(0)" onclick="ReclutamientoOverlayEdit.edit(@item.Id)" title="Editar">
                                 <i class="bi bi-pencil"></i>
                             </a>
-                            <a asp-action="Delete" asp-route-id="@item.Id" title="Eliminar"
-                               onclick="return confirm('¿Deseas eliminar este registro?');">
+                            <a href="javascript:void(0)" onclick="ReclutamientoOverlayDelete.open(@item.Id)" title="Eliminar">
                                 <i class="bi bi-trash"></i>
                             </a>
                         </td>
