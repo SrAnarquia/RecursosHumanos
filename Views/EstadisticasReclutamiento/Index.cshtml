@@ -1,97 +1,117 @@
-﻿@model RecursosHumanos.Models.ViewModels.ReclutamientoEstadisticasVM
+﻿<style>
+    .chart-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0,0,0,.08);
+        height: 420px;
+    }
 
-@section Styles {
-    <link href="~/css/styleReclutamiento.css" rel="stylesheet" />
-}
+    .chart-container {
+        position: relative;
+        height: 300px;
+    }
+</style>
+
+
+@model RecursosHumanos.Models.ViewModels.ReclutamientoEstadisticasVM
+
+<h3 class="mb-4 fw-bold">📊 Estatus de Reclutamiento</h3>
+
+<form method="get" class="mb-4">
+    <div class="row g-3">
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Año</label>
+            <select name="anio" class="form-select">
+                <option value="0">Todos</option>
+                @foreach (var a in Model.Anios)
+                {
+                    <option value="@a.Value" selected="@a.Selected">@a.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-3">
+            <label class="form-label fw-semibold">Mes</label>
+            <select name="mes" class="form-select">
+                <option value="0">Todos</option>
+                @foreach (var m in Model.Meses)
+                {
+                    <option value="@m.Value" selected="@m.Selected">@m.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="col-md-2 align-self-end">
+            <button class="btn btn-primary w-100">Filtrar</button>
+        </div>
+    </div>
+</form>
+
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="chart-card">
+            <h6 class="fw-bold mb-3">Contratados vs No Contratados</h6>
+            <div class="chart-container">
+                <canvas id="chartBarra"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="chart-card">
+            <h6 class="fw-bold mb-3">Razones de No Contratación</h6>
+            <div class="chart-container">
+                <canvas id="chartPie"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="~/js/ReclutamientoCharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 
     <script>
-        window.reclutamientoChartsData = {
-            meses: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.Meses)),
-            contactadosPorMes: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ContactadosPorMes)),
-            contratadosPorMes: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.ContratadosPorMes)),
-            fuentesLabels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.FuentesContratacion.Keys)),
-            fuentesData: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.FuentesContratacion.Values)),
-            noContratadosLabels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Keys)),
-            noContratadosData: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Values))
-        };
+        Chart.register(ChartDataLabels);
+
+        new Chart(chartBarra, {
+            type: 'bar',
+            data: {
+                labels: ['CONTRATADO', 'NO CONTRATADO'],
+                datasets: [{
+                    data: [@Model.TotalContratados, @Model.TotalNoContratados],
+                    backgroundColor: ['#198754', '#dc3545']
+                }]
+            },
+            options: {
+                maintainAspectRatio: false,
+                plugins: {
+                    datalabels: {
+                        color: '#000',
+                        anchor: 'center',
+                        align: 'center',
+                        font: { weight: 'bold' }
+                    },
+                    legend: { display: false }
+                },
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+
+        new Chart(chartPie, {
+            type: 'pie',
+            data: {
+                labels: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Keys)),
+                datasets: [{
+                    data: @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.RazonesNoContratacion.Values))
+                }]
+            },
+            options: {
+                maintainAspectRatio: false
+            }
+        });
     </script>
 }
-
-<div class="container-fluid">
-
-    <!-- ===================== TÍTULO ===================== -->
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>
-            <i class="bi bi-graph-up"></i> Estadísticas de Reclutamiento
-        </h2>
-    </div>
-
-    <!-- ===================== TARJETAS KPI ===================== -->
-    <div class="row mb-4">
-        <div class="col-md-3">
-            <div class="card shadow-sm text-center p-3">
-                <h6 class="text-muted">Total registros</h6>
-                <h3>@Model.TotalRegistros</h3>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm text-center p-3">
-                <h6 class="text-muted">Contactados</h6>
-                <h3 class="text-primary">@Model.TotalContactados</h3>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm text-center p-3">
-                <h6 class="text-muted">Contratados</h6>
-                <h3 class="text-success">@Model.TotalContratados</h3>
-            </div>
-        </div>
-        <div class="col-md-3">
-            <div class="card shadow-sm text-center p-3">
-                <h6 class="text-muted">No contratados</h6>
-                <h3 class="text-danger">@Model.TotalNoContratados</h3>
-            </div>
-        </div>
-    </div>
-
-    <!-- ===================== GRÁFICAS ===================== -->
-    <div class="row g-4">
-
-        <!-- Gráfica 1 -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-3">
-                <h6 class="mb-3">Contactados por mes</h6>
-                <canvas id="chartContactadosMes"></canvas>
-            </div>
-        </div>
-
-        <!-- Gráfica 2 -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-3">
-                <h6 class="mb-3">Contratados por mes</h6>
-                <canvas id="chartContratadosMes"></canvas>
-            </div>
-        </div>
-
-        <!-- Gráfica 3 -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-3">
-                <h6 class="mb-3">Fuentes de contratación</h6>
-                <canvas id="chartFuentes"></canvas>
-            </div>
-        </div>
-
-        <!-- Gráfica 4 -->
-        <div class="col-md-6">
-            <div class="card shadow-sm p-3">
-                <h6 class="mb-3">Razones de no contratación</h6>
-                <canvas id="chartNoContratados"></canvas>
-            </div>
-        </div>
-
-    </div>
-</div>

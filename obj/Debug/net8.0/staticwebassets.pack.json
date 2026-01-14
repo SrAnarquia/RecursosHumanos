@@ -29,12 +29,20 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoCharts.js",
+      "PackagePath": "staticwebassets\\js\\ReclutamientoCharts.js"
+    },
+    {
       "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlay.js",
       "PackagePath": "staticwebassets\\js\\ReclutamientoOverlay.js"
     },
     {
       "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlayDelete.js",
       "PackagePath": "staticwebassets\\js\\ReclutamientoOverlayDelete.js"
+    },
+    {
+      "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlayDetails.js",
+      "PackagePath": "staticwebassets\\js\\ReclutamientoOverlayDetails.js"
     },
     {
       "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlayEdit.js",

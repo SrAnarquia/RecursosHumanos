@@ -1,12 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using RecursosHumanos.Models;
 using RecursosHumanos.Models.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Globalization;
 
 namespace RecursosHumanos.Controllers
 {
@@ -19,76 +16,62 @@ namespace RecursosHumanos.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> Index(
-            DateTime? fechaDesde,
-            DateTime? fechaHasta,
-            int? idEmpresa,
-            int? idReclutador)
+        public async Task<IActionResult> Index(int anio = 0, int mes = 0)
         {
+            // 🔒 Validación clave
+            if (mes > 0 && anio == 0)
+                anio = DateTime.Now.Year;
+
             var query = _context.DatosReclutamientos
                 .Include(x => x.IdEstatusNavigation)
-                .Include(x => x.IdFuenteNavigation)
                 .AsQueryable();
 
-            if (fechaDesde.HasValue)
-                query = query.Where(x => x.FechaContacto >= fechaDesde);
+            if (anio > 0)
+                query = query.Where(x => x.FechaContacto.Year == anio);
 
-            if (fechaHasta.HasValue)
-                query = query.Where(x => x.FechaContacto <= fechaHasta);
-
-            if (idEmpresa.HasValue)
-                query = query.Where(x => x.IdEmpresa == idEmpresa);
-
-            if (idReclutador.HasValue)
-                query = query.Where(x => x.IdReclutador == idReclutador);
+            if (mes > 0)
+                query = query.Where(x => x.FechaContacto.Month == mes);
 
             var datos = await query.ToListAsync();
 
             var vm = new ReclutamientoEstadisticasVM
             {
-                FechaDesde = fechaDesde,
-                FechaHasta = fechaHasta,
-                IdEmpresa = idEmpresa,
-                IdReclutador = idReclutador,
+                Anio = anio,
+                Mes = mes,
 
-                TotalRegistros = datos.Count,
-                TotalContactados = datos.Count(x => x.FechaContacto != null),
-                TotalContratados = datos.Count(x => x.IdEstatusNavigation.Estatus1 == "Contratado"),
-                TotalNoContratados = datos.Count(x => x.IdEstatusNavigation.Estatus1 != "Contratado"),
-
-                Meses = datos
-                    .GroupBy(x => x.FechaContacto.ToString("yyyy-MM"))
-                    .OrderBy(x => x.Key)
-                    .Select(x => x.Key)
-                    .ToList(),
-
-                ContactadosPorMes = datos
-                    .GroupBy(x => x.FechaContacto.ToString("yyyy-MM"))
-                    .OrderBy(x => x.Key)
-                    .Select(x => x.Count())
-                    .ToList(),
-
-                ContratadosPorMes = datos
-                    .Where(x => x.IdEstatusNavigation.Estatus1 == "Contratado")
-                    .GroupBy(x => x.FechaContacto.ToString("yyyy-MM"))
-                    .OrderBy(x => x.Key)
-                    .Select(x => x.Count())
-                    .ToList(),
-
-                FuentesContratacion = datos
-                    .Where(x => x.IdEstatusNavigation.Estatus1 == "Contratado")
-                    .GroupBy(x => x.IdFuenteNavigation.Fuente1)
-                    .ToDictionary(x => x.Key, x => x.Count()),
+                TotalContratados = datos.Count(x => x.IdEstatusNavigation.Estatus1 == "CONTRATADO"),
+                TotalNoContratados = datos.Count(x => x.IdEstatusNavigation.Estatus1 != "CONTRATADO"),
 
                 RazonesNoContratacion = datos
-                    .Where(x => x.IdEstatusNavigation.Estatus1 != "Contratado")
+                    .Where(x => x.IdEstatusNavigation.Estatus1 != "CONTRATADO")
                     .GroupBy(x => x.Comentarios)
-                    .Where(x => !string.IsNullOrEmpty(x.Key))
-                    .ToDictionary(x => x.Key, x => x.Count())
+                    .Where(x => !string.IsNullOrWhiteSpace(x.Key))
+                    .ToDictionary(x => x.Key, x => x.Count()),
+
+                // ===== AÑOS FIJOS =====
+                Anios = Enumerable.Range(2025, 4)
+                    .Select(y => new SelectListItem
+                    {
+                        Value = y.ToString(),
+                        Text = y.ToString(),
+                        Selected = y == anio
+                    }).ToList(),
+
+                // ===== MESES EN ESPAÑOL =====
+                Meses = Enumerable.Range(1, 12)
+                    .Select(m => new SelectListItem
+                    {
+                        Value = m.ToString(),
+                        Text = CultureInfo
+                            .GetCultureInfo("es-ES")
+                            .DateTimeFormat
+                            .GetMonthName(m)
+                            .ToUpper(),
+                        Selected = m == mes
+                    }).ToList()
             };
 
             return View(vm);
         }
     }
-
 }
