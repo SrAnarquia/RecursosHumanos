@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using RecursosHumanos.Models.ViewModels;
 
 using RecursosHumanos.Models;
 using Microsoft.IdentityModel.Abstractions;
+using RecursosHumanos.Models.ViewModels.Login;
 
 namespace RecursosHumanos.Controllers
 {
@@ -11,12 +11,17 @@ namespace RecursosHumanos.Controllers
     {
         private readonly ApplicationDbContext _context;
 
+
+        #region Builder
         //Constructor
         public CuentaController(ApplicationDbContext context) 
         {
 
             _context = context;
         }
+        #endregion
+
+        #region LoginGet
 
         [HttpGet]
         public IActionResult Login() 
@@ -25,7 +30,9 @@ namespace RecursosHumanos.Controllers
             return View();
         
         }
+        #endregion
 
+        #region LoginPost
         [HttpPost]
         public IActionResult Login(LoginViewModelscs model) 
         {
@@ -58,7 +65,9 @@ namespace RecursosHumanos.Controllers
 
         }
 
+        #endregion
 
+        #region LogOut
         [HttpPost]
         [ValidateAntiForgeryToken]
         //Se elimina la cookie
@@ -70,6 +79,7 @@ namespace RecursosHumanos.Controllers
             //Redirigir a Login
             return RedirectToAction("Login");
         }
+        #endregion
 
     }
 }

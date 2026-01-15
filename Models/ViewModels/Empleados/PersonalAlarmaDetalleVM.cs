@@ -1,4 +1,4 @@
-﻿namespace RecursosHumanos.Models.ViewModels
+﻿namespace RecursosHumanos.Models.ViewModels.Empleados
 {
     public class PersonalAlarmaDetalleVM
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using System.Data;
-using RecursosHumanos.Models.ViewModels;
+using RecursosHumanos.Models.ViewModels.Empleados;
 
 public class AlertasController : Controller
 {
@@ -12,6 +12,7 @@ public class AlertasController : Controller
         _configuration = configuration;
     }
 
+    #region Alertas
     public IActionResult Index(int page = 1)
     {
         int pageSize = 10;
@@ -58,6 +59,11 @@ public class AlertasController : Controller
         return View(datosPaginados);
     }
 
+
+    #endregion
+
+
+    #region Details
     public IActionResult Details(int id)
     {
         PersonalAlarmaDetalleVM model = null;
@@ -104,4 +110,8 @@ public class AlertasController : Controller
 
         return PartialView("_Details", model);
     }
+
+    #endregion 
+
+
 }

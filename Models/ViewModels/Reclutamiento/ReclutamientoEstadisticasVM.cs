@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace RecursosHumanos.Models.ViewModels
+namespace RecursosHumanos.Models.ViewModels.Reclutamiento
 {
     public class ReclutamientoEstadisticasVM
     {

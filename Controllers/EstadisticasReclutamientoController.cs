@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using RecursosHumanos.Models;
-using RecursosHumanos.Models.ViewModels;
+using RecursosHumanos.Models.ViewModels.Reclutamiento;
 using System.Globalization;
 
 namespace RecursosHumanos.Controllers

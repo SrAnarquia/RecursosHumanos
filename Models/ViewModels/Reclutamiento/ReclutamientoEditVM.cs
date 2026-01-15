@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
-namespace RecursosHumanos.Models.ViewModels
+namespace RecursosHumanos.Models.ViewModels.Reclutamiento
 {
     public class ReclutamientoEditVM
     {
