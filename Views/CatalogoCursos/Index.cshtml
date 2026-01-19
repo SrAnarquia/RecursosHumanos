@@ -24,10 +24,19 @@
 
         <input type="text" name="Nombre" value="@Model.Nombre" placeholder="Nombre del curso" />
 
-        <select name="IdDepartamento" asp-items="Model.Departamentos"></select>
-        <select name="IdNivel" asp-items="Model.Niveles"></select>
-        <select name="IdTipoCurso" asp-items="Model.TiposCurso"></select>
+        <select name="FiltroDepartamento" asp-items="Model.Departamentos">
+            <option value="">Departamento</option>
+        </select>
 
+        <select name="FiltroDepartamento" asp-items="Model.Niveles">
+            <option value="">Nivel</option>
+        </select>
+
+        <select name="FiltroDepartamento" asp-items="Model.TiposCurso">
+            <option value="">Tipo Curso</option>
+        </select>
+      
+    
         <input type="date" name="FechaDesde" value="@(Model.FechaDesde?.ToString("yyyy-MM-dd"))" />
         <input type="date" name="FechaHasta" value="@(Model.FechaHasta?.ToString("yyyy-MM-dd"))" />
 

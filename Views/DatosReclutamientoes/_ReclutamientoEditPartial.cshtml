@@ -104,6 +104,18 @@
                     </select>
                 </div>
 
+                <div class="col-md-6">
+                    <label asp-for="Nuevo.FechaContacto" class="form-label">
+                        Fecha de contacto
+                    </label>
+                    <input asp-for="Nuevo.FechaContacto"
+                           type="date"
+                           value="@(Model.Nuevo?.FechaContacto.ToString("yyyy-MM-dd"))"
+                           max="@DateTime.Today.ToString("yyyy-MM-dd")"
+                           class="form-control"
+                           required />
+                </div>
+
                 <!-- RECLUTADOR -->
                 <div class="col-md-12">
                     <label>Reclutador</label>

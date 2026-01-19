@@ -12,6 +12,7 @@
     </h2>
 </div>
 
+
 <!-- ===================== FILTROS ===================== -->
 <div class="filter-card mb-4">
     <form method="get" class="filters">
@@ -20,17 +21,38 @@
                value="@Model.FiltroNombre"
                placeholder="Nombre" />
 
-        <input type="text" name="FiltroDepartamento"
-               value="@Model.FiltroDepartamento"
-               placeholder="Departamento" />
+        <select name="FiltroDepartamento">
+            <option value="">Departamento</option>
+            @foreach (var dep in Model.Departamentos)
+            {
+                <option value="@dep.Value"
+                        selected="@(dep.Value == Model.FiltroDepartamento)">
+                    @dep.Text
+                </option>
+            }
+        </select>
 
-        <input type="text" name="FiltroTipoEmpleado"
-               value="@Model.FiltroTipoEmpleado"
-               placeholder="Tipo empleado" />
+        <select name="FiltroTipoEmpleado">
+            <option value="">Tipo empleado</option>
+            @foreach (var tipo in Model.TiposEmpleado)
+            {
+                <option value="@tipo.Value"
+                        selected="@(tipo.Value == Model.FiltroTipoEmpleado)">
+                    @tipo.Text
+                </option>
+            }
+        </select>
 
-        <input type="text" name="FiltroEstado"
-               value="@Model.FiltroEstado"
-               placeholder="Estado" />
+        <select name="FiltroEstado">
+            <option value="">Estado</option>
+            @foreach (var est in Model.Estados)
+            {
+                <option value="@est.Value"
+                        selected="@(est.Value == Model.FiltroEstado)">
+                    @est.Text
+                </option>
+            }
+        </select>
 
         <button type="submit" class="btn btn-primary">
             <i class="bi bi-search"></i> Filtrar
@@ -39,7 +61,6 @@
         <a asp-action="Index" class="btn btn-secondary">
             <i class="bi bi-x-circle"></i> Limpiar
         </a>
-
     </form>
 </div>
 

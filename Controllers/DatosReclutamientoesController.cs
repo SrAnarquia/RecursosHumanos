@@ -81,8 +81,12 @@ namespace RecursosHumanos.Controllers
             var model = new ReclutamientoIndexVM
             {
                 Datos = datos,
-                Nuevo = new DatosReclutamiento(),
+                Nuevo = new DatosReclutamiento() 
+                {
+                    FechaContacto = DateTime.Today
 
+                },
+             
                 Nombre = filtro.Nombre,
                 Telefono = filtro.Telefono,
                 FechaDesde = filtro.FechaDesde,
@@ -132,6 +136,9 @@ namespace RecursosHumanos.Controllers
             return View(datosReclutamiento);
         }
 
+        #endregion
+
+        #region CreatePost
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind(Prefix = "Nuevo")] DatosReclutamiento nuevo)
@@ -185,8 +192,13 @@ namespace RecursosHumanos.Controllers
                 return View("Index", vm);
             }
 
+
             // Fecha de contacto
-            nuevo.FechaContacto = DateTime.Now;
+            if (nuevo.FechaContacto == DateTime.MinValue)
+            {
+                nuevo.FechaContacto = DateTime.Today;
+            }
+
 
             // Guardar en DB
             _context.DatosReclutamientos.Add(nuevo);
@@ -317,6 +329,7 @@ namespace RecursosHumanos.Controllers
             entity.IdPosicion = model.IdPosicion;
             entity.IdSexo = model.IdSexo;
             entity.IdReclutador = model.IdReclutador;
+            entity.FechaContacto = model.FechaContacto;
 
             await _context.SaveChangesAsync();
 

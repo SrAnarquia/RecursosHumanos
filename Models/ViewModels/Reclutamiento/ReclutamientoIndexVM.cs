@@ -33,7 +33,9 @@ namespace RecursosHumanos.Models.ViewModels.Reclutamiento
 
         public DateTime? FechaHasta { get; set; }
 
-        
+
+        public DateTime? FechaContacto { get; set; }
+
         //Paginación
         public int PaginaActual { get; set; }
         public int? TotalPaginas { get; set; }

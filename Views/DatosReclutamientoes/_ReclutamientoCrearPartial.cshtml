@@ -63,6 +63,19 @@
                     <span asp-validation-for="Nuevo.IdSexo" class="text-danger"></span>
                 </div>
 
+                <div class="col-md-6">
+                    <label asp-for="Nuevo.FechaContacto" class="form-label">
+                        Fecha de contacto
+                    </label>
+                    <input asp-for="Nuevo.FechaContacto"
+                           type="date"
+                           value="@(Model.Nuevo?.FechaContacto.ToString("yyyy-MM-dd"))"
+                           max="@DateTime.Today.ToString("yyyy-MM-dd")"
+                           class="form-control"
+                           required />
+                </div>
+
+
                 <div class="col-md-12">
                     <label asp-for="Reclutadores"></label>
                     <select asp-for="Nuevo.IdReclutador" asp-items="Model.Reclutadores" class="form-select"></select>

@@ -2,8 +2,8 @@
 <!-- https://go.microsoft.com/fwlink/?LinkID=208121. -->
 <Project>
   <PropertyGroup>
-    <_PublishTargetUrl>\\192.168.2.211\CapitalHumano</_PublishTargetUrl>
-    <History>True|2026-01-19T14:45:47.9812534Z||;</History>
+    <_PublishTargetUrl>\\192.168.2.211\CapitalRecursos</_PublishTargetUrl>
+    <History>True|2026-01-19T21:02:10.4950229Z||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>

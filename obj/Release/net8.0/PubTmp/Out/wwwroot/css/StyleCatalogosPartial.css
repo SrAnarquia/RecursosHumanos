@@ -1,0 +1,67 @@
+﻿/* =============================== OVERLAY =============================== */
+.catalogos-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.65);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+    .catalogos-overlay.show {
+        display: flex;
+    }
+
+/* =============================== MODAL =============================== */
+.catalogos-modal {
+    background: #ffffff;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 900px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.25);
+    animation: fadeIn .25s ease;
+}
+
+    /* =============================== HEADER =============================== */
+    .catalogos-modal .modal-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #e5e7eb;
+        margin-bottom: 15px;
+    }
+
+        .catalogos-modal .modal-header h5 {
+            margin: 0;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+
+    /* =============================== BODY =============================== */
+    .catalogos-modal .modal-body {
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    /* =============================== FOOTER =============================== */
+    .catalogos-modal .modal-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 15px;
+    }
+
+/* =============================== ANIMACIÓN =============================== */
+@keyframes fadeIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

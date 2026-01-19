@@ -38,6 +38,30 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWxlcnRhc1xfRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/CatalogoCursos/_EntrenamientoCrearPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2F0YWxvZ29DdXJzb3NcX0VudHJlbmFtaWVudG9DcmVhclBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Cuenta/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3VlbnRhXExvZ2luLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -76,6 +100,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Empleados/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Empleados/Portafolio.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbGVhZG9zXFBvcnRhZm9saW8uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/EstadisticasReclutamiento/Create.cshtml]

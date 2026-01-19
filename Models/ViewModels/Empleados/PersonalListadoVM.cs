@@ -1,4 +1,6 @@
-﻿namespace RecursosHumanos.Models.ViewModels.Empleados
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+
+namespace RecursosHumanos.Models.ViewModels.Empleados
 {
     public class PersonalListadoVM
     {
@@ -21,6 +23,14 @@
         public string FiltroDepartamento { get; set; }
         public string FiltroTipoEmpleado { get; set; }
         public string FiltroEstado { get; set; }
+
+
+        // COMBOS
+        public List<SelectListItem> Departamentos { get; set; }
+        public List<SelectListItem> TiposEmpleado { get; set; }
+        public List<SelectListItem> Estados { get; set; }
+
+
 
         // ===================== PAGINACIÓN =====================
         public int PaginaActual { get; set; }

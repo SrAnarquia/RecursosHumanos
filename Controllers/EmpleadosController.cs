@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
-using System.Data;
 using RecursosHumanos.Models.ViewModels.Empleados;
+using System.Data;
 
 public class EmpleadosController : Controller
 {
@@ -56,6 +57,43 @@ public class EmpleadosController : Controller
         if (!string.IsNullOrEmpty(filtro.FiltroEstado))
             lista = lista.Where(x => x.Estado == filtro.FiltroEstado).ToList();
 
+
+        var departamentos = lista
+            .Select(x => x.Departamento)
+            .Distinct()
+            .OrderBy(x => x)
+            .Select(x => new SelectListItem
+            {
+                Text = x,
+                Value = x
+            })
+            .ToList();
+
+        var tiposEmpleado = lista
+            .Select(x => x.TipoEmpleado)
+            .Distinct()
+            .OrderBy(x => x)
+            .Select(x => new SelectListItem
+            {
+                Text = x,
+                Value = x
+            })
+            .ToList();
+
+        var estados = lista
+            .Select(x => x.Estado)
+            .Distinct()
+            .OrderBy(x => x)
+            .Select(x => new SelectListItem
+            {
+                Text = x,
+                Value = x
+            })
+            .ToList();
+
+
+
+
         // ===================== PAGINACIÓN =====================
         int totalRegistros = lista.Count;
         var datosPaginados = lista
@@ -72,7 +110,12 @@ public class EmpleadosController : Controller
             FiltroNombre = filtro.FiltroNombre,
             FiltroDepartamento = filtro.FiltroDepartamento,
             FiltroTipoEmpleado = filtro.FiltroTipoEmpleado,
-            FiltroEstado = filtro.FiltroEstado
+            FiltroEstado = filtro.FiltroEstado,
+
+
+            Departamentos = departamentos,
+            TiposEmpleado = tiposEmpleado,
+            Estados = estados
         };
 
         return View(vm);
