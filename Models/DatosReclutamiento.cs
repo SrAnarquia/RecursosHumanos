@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-
 
 namespace RecursosHumanos.Models;
 
@@ -9,13 +7,10 @@ public partial class DatosReclutamiento
 {
     public int Id { get; set; }
 
-    [Required(ErrorMessage = "El nombre completo es obligatorio")]
     public string NombreCompleto { get; set; } = null!;
 
-    [Required(ErrorMessage = "El Telefono es obligatorio")]
     public string Telefono { get; set; } = null!;
 
-    [Required(ErrorMessage = "El Comentario es obligatorio")]
     public string Comentarios { get; set; } = null!;
 
     public DateTime FechaCreación { get; set; }
@@ -34,8 +29,6 @@ public partial class DatosReclutamiento
 
     public int? IdReclutador { get; set; }
 
-
-    [Required(ErrorMessage = "La Fecha de contacto es obligatorio")]
     public DateTime FechaContacto { get; set; }
 
     public virtual Base? IdBaseNavigation { get; set; }

@@ -251,7 +251,6 @@ C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\Re
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\obj\Debug\net8.0\RecursosHumanos.sourcelink.json
 C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\appsettings.Development.json
 C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\appsettings.json
@@ -780,3 +779,13 @@ C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\Re
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanosV1\RecursosHumanos\obj\Debug\net8.0\RecursosHumanos.genruntimeconfig.cache
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanosV1\RecursosHumanos\obj\Debug\net8.0\ref\RecursosHumanos.dll
 C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanosV1\RecursosHumanos\bin\Debug\net8.0\dotnet-tools.json
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\dotnet-tools.json
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\ClosedXML.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\ClosedXML.Parser.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\RBush.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\bin\Debug\net8.0\System.IO.Packaging.dll
+C:\Users\Jonathan Corpus\Desktop\Nuevos Desarrollos\Desarrollos\Visual Studio\RecursosHumanos\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

@@ -17,9 +17,15 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Base> Bases { get; set; }
 
+    public virtual DbSet<CatalogoCurso> CatalogoCursos { get; set; }
+
+    public virtual DbSet<CatalogoNivel> CatalogoNivels { get; set; }
+
     public virtual DbSet<DatosReclutamiento> DatosReclutamientos { get; set; }
 
     public virtual DbSet<DatosReclutamientoReflejo> DatosReclutamientoReflejos { get; set; }
+
+    public virtual DbSet<Departamento> Departamentos { get; set; }
 
     public virtual DbSet<Empresa> Empresas { get; set; }
 
@@ -32,6 +38,8 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<Reclutador> Reclutadors { get; set; }
 
     public virtual DbSet<Sexo> Sexos { get; set; }
+
+    public virtual DbSet<TipoCurso> TipoCursos { get; set; }
 
     public virtual DbSet<Usuario> Usuarios { get; set; }
 
@@ -55,6 +63,58 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.FechaCreación)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<CatalogoCurso>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Catalogo__3214EC075C39BCC2");
+
+            entity.ToTable("CatalogoCursos", "Entrenamiento");
+
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(2555)
+                .IsUnicode(false);
+            entity.Property(e => e.Diploma)
+                .HasMaxLength(800)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.FechaExpiracion).HasColumnType("datetime");
+            entity.Property(e => e.FechaFinalizacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaInicio).HasColumnType("datetime");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.IdDepartamentoNavigation).WithMany(p => p.CatalogoCursos)
+                .HasForeignKey(d => d.IdDepartamento)
+                .HasConstraintName("FK_CatalogoCursos_Departamento");
+
+            entity.HasOne(d => d.IdNivelNavigation).WithMany(p => p.CatalogoCursos)
+                .HasForeignKey(d => d.IdNivel)
+                .HasConstraintName("FK_CatalogoCursos_Nivel");
+
+            entity.HasOne(d => d.IdTipoCursoNavigation).WithMany(p => p.CatalogoCursos)
+                .HasForeignKey(d => d.IdTipoCurso)
+                .HasConstraintName("FK_CatalogoCursos_TipoCurso");
+        });
+
+        modelBuilder.Entity<CatalogoNivel>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Catalogo__3214EC071484793E");
+
+            entity.ToTable("CatalogoNivel", "Entrenamiento");
+
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(255)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<DatosReclutamiento>(entity =>
@@ -146,6 +206,23 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false);
         });
 
+        modelBuilder.Entity<Departamento>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Departam__3214EC07C52529C5");
+
+            entity.ToTable("Departamento", "Entrenamiento");
+
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<Empresa>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Empresa__3214EC0716581833");
@@ -233,6 +310,23 @@ public partial class ApplicationDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("Sexo");
+        });
+
+        modelBuilder.Entity<TipoCurso>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__TipoCurs__3214EC075E7746E7");
+
+            entity.ToTable("TipoCurso", "Entrenamiento");
+
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(2555)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(500)
+                .IsUnicode(false);
         });
 
         modelBuilder.Entity<Usuario>(entity =>
