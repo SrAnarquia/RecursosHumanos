@@ -8,6 +8,9 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RecursosHumanos.Models;
 using RecursosHumanos.Models.ViewModels.Reclutamiento;
+using ClosedXML.Excel;
+using System.IO;
+
 
 namespace RecursosHumanos.Controllers
 {
@@ -30,34 +33,7 @@ namespace RecursosHumanos.Controllers
         {
             int pageSize = 10;
 
-            var query = _context.DatosReclutamientos
-                .Include(d => d.IdEmpresaNavigation)
-                .Include(d => d.IdBaseNavigation)
-                .Include(d => d.IdFuenteNavigation)
-                .Include(d => d.IdEstatusNavigation)
-                .Include(d => d.IdPosicionNavigation)
-                .Include(d => d.IdReclutadorNavigation)
-                .Include(d => d.IdSexoNavigation)
-                .AsQueryable();
-
-            // Filtros
-            if (!string.IsNullOrEmpty(filtro.Nombre))
-                query = query.Where(x => x.NombreCompleto.Contains(filtro.Nombre));
-
-            if (!string.IsNullOrEmpty(filtro.Telefono))
-                query = query.Where(x => x.Telefono.Contains(filtro.Telefono));
-
-            if (filtro.IdReclutador.HasValue)
-                query = query.Where(x => x.IdReclutador == filtro.IdReclutador);
-
-            if (filtro.FechaDesde.HasValue)
-                query = query.Where(x => x.FechaContacto >= filtro.FechaDesde);
-
-            if (filtro.FechaHasta.HasValue)
-                query = query.Where(x => x.FechaContacto <= filtro.FechaHasta);
-
-            // Ordenar
-            query = query.OrderByDescending(x => x.FechaContacto);
+            var query = BuildQuery(filtro);
 
             int totalRegistros = await query.CountAsync();
 
@@ -106,6 +82,13 @@ namespace RecursosHumanos.Controllers
             {
                 Datos = datos,
                 Nuevo = new DatosReclutamiento(),
+
+                Nombre = filtro.Nombre,
+                Telefono = filtro.Telefono,
+                FechaDesde = filtro.FechaDesde,
+                FechaHasta = filtro.FechaHasta,
+                IdReclutador = filtro.IdReclutador,
+
                 Empresas = empresas,
                 Bases = bases,
                 Fuentes = fuentes,
@@ -389,8 +372,102 @@ namespace RecursosHumanos.Controllers
         #endregion
 
 
+        #region FiltersPreparation
+
+        private IQueryable<DatosReclutamiento> BuildQuery(ReclutamientoIndexVM filtro)
+        {
+            var query = _context.DatosReclutamientos
+                .Include(d => d.IdEmpresaNavigation)
+                .Include(d => d.IdBaseNavigation)
+                .Include(d => d.IdFuenteNavigation)
+                .Include(d => d.IdEstatusNavigation)
+                .Include(d => d.IdPosicionNavigation)
+                .Include(d => d.IdReclutadorNavigation)
+                .Include(d => d.IdSexoNavigation)
+                .AsQueryable();
+
+            if (!string.IsNullOrEmpty(filtro.Nombre))
+                query = query.Where(x => x.NombreCompleto.Contains(filtro.Nombre));
+
+            if (!string.IsNullOrEmpty(filtro.Telefono))
+                query = query.Where(x => x.Telefono.Contains(filtro.Telefono));
+
+            if (filtro.IdReclutador.HasValue)
+                query = query.Where(x => x.IdReclutador == filtro.IdReclutador);
+
+            if (filtro.FechaDesde.HasValue)
+                query = query.Where(x => x.FechaContacto >= filtro.FechaDesde);
+
+            if (filtro.FechaHasta.HasValue)
+                query = query.Where(x => x.FechaContacto <= filtro.FechaHasta);
+
+            return query.OrderByDescending(x => x.FechaContacto);
+        }
 
 
+
+        #endregion
+
+        #region Export
+        [HttpGet]
+        public async Task<IActionResult> Export(ReclutamientoIndexVM filtro)
+        {
+            var datos = await BuildQuery(filtro).ToListAsync();
+
+            using (var workbook = new XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Reclutamiento");
+
+                // 🔹 ENCABEZADOS
+                worksheet.Cell(1, 1).Value = "ID";
+                worksheet.Cell(1, 2).Value = "Nombre";
+                worksheet.Cell(1, 3).Value = "Teléfono";
+                worksheet.Cell(1, 4).Value = "Correo";
+                worksheet.Cell(1, 5).Value = "Fecha Contacto";
+                worksheet.Cell(1, 6).Value = "Estatus";
+
+                // Estilo encabezados
+                var headerRange = worksheet.Range("A1:F1");
+                headerRange.Style.Font.Bold = true;
+                headerRange.Style.Fill.BackgroundColor = XLColor.LightGray;
+                headerRange.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center;
+
+                // DATOS
+                int fila = 2;
+                foreach (var item in datos)
+                {
+                    worksheet.Cell(fila, 1).Value = item.Id;
+                    worksheet.Cell(fila, 2).Value = item.NombreCompleto;
+                    worksheet.Cell(fila, 3).Value = item.Telefono;
+                    worksheet.Cell(fila, 4).Value = item.IdEmpresaNavigation?.Empresa1;
+                    worksheet.Cell(fila, 5).Value = item.FechaContacto;
+                    worksheet.Cell(fila, 6).Value = item.IdEstatus;
+
+                    fila++;
+                }
+
+                // 🔹 Ajustar columnas automáticamente
+                worksheet.Columns().AdjustToContents();
+
+                // 🔹 Exportar
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    stream.Position = 0;
+
+                    string fileName = $"Reclutamiento_{DateTime.Now:yyyyMMdd_HHmm}.xlsx";
+
+                    return File(
+                        stream.ToArray(),
+                        "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                        fileName
+                    );
+                }
+            }
+        }
+
+
+        #endregion
 
     }
 }

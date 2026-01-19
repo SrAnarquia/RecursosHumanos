@@ -509,3 +509,11 @@ C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\obj\Debug\net8.
 C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\obj\Debug\net8.0\RecursosHumanos.pdb
 C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\obj\Debug\net8.0\RecursosHumanos.genruntimeconfig.cache
 C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\obj\Debug\net8.0\ref\RecursosHumanos.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\ClosedXML.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\ClosedXML.Parser.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\DocumentFormat.OpenXml.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\DocumentFormat.OpenXml.Framework.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\ExcelNumberFormat.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\RBush.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\SixLabors.Fonts.dll
+C:\Users\korpu\OneDrive\Escritorio\HR Desarrollo\RecursosHumanos\bin\Debug\net8.0\System.IO.Packaging.dll

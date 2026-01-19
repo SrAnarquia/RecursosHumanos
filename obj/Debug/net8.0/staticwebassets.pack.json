@@ -29,6 +29,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\AlertasDetailsOverlay.js",
+      "PackagePath": "staticwebassets\\js\\AlertasDetailsOverlay.js"
+    },
+    {
       "Id": "C:\\Users\\korpu\\OneDrive\\Escritorio\\HR Desarrollo\\RecursosHumanos\\wwwroot\\js\\ReclutamientoCharts.js",
       "PackagePath": "staticwebassets\\js\\ReclutamientoCharts.js"
     },

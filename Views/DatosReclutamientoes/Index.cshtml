@@ -43,11 +43,26 @@
     </form>
 </div>
 
-<!-- ===================== BOTÓN CREAR ===================== -->
-<div class="d-flex justify-content-end mb-3">
-    <button type="button" class="btn btn-success" onclick="ReclutamientoOverlayCreate.open()">
+<!-- ===================== BOTONES SUPERIORES ===================== -->
+<div class="d-flex justify-content-end gap-2 mb-3">
+
+    <!-- Botón Crear -->
+    <button type="button" class="btn btn-success"
+            onclick="ReclutamientoOverlayCreate.open()">
         <i class="bi bi-person-plus"></i> Crear
     </button>
+
+    <!-- Botón Exportar a Excel -->
+    <a asp-action="Export"
+       asp-route-Nombre="@Model.Nombre"
+       asp-route-Telefono="@Model.Telefono"
+       asp-route-FechaDesde="@Model.FechaDesde"
+       asp-route-FechaHasta="@Model.FechaHasta"
+       class="btn btn-outline-success"
+       title="Exportar datos a Excel">
+        <i class="bi bi-file-earmark-excel"></i> Exportar
+    </a>
+
 </div>
 
 <!-- ===================== TABLA ===================== -->
