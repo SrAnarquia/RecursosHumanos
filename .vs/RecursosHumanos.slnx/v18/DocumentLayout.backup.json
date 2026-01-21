@@ -3,16 +3,56 @@
   "WorkspaceRootPath": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\datosreclutamientoes\\_reclutamientodetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\datosreclutamientoes\\_reclutamientodetailspartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\empleados\\_createcurso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\empleados\\_createcurso.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:controllers\\empleadoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\controllers\\datosreclutamientoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:controllers\\datosreclutamientoescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\controllers\\estadisticasreclutamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:controllers\\estadisticasreclutamientocontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\empleados\\cursocreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\empleados\\cursocreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\empleados\\personalportafoliovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\empleados\\personalportafoliovm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\datosreclutamientoes\\_reclutamientocrearpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\datosreclutamientoes\\_reclutamientocrearpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\wwwroot\\js\\reclutamientooverlay.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:wwwroot\\js\\reclutamientooverlay.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\datosreclutamientoes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\datosreclutamientoes\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\reclutamiento\\reclutamientoindexvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\reclutamiento\\reclutamientoindexvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\reclutamientocrearvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\reclutamientocrearvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\wwwroot\\css\\stylereclutamientopartial.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:wwwroot\\css\\stylereclutamientopartial.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\empleados\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\empleados\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,45 +62,175 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DatosReclutamientoesController.cs",
-              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\DatosReclutamientoesController.cs",
-              "RelativeDocumentMoniker": "Controllers\\DatosReclutamientoesController.cs",
-              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\DatosReclutamientoesController.cs",
-              "RelativeToolTip": "Controllers\\DatosReclutamientoesController.cs",
-              "ViewState": "AgIAANMAAAAAAAAAAAAAwOAAAAAxAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "EstadisticasReclutamientoController.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\EstadisticasReclutamientoController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EstadisticasReclutamientoController.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\EstadisticasReclutamientoController.cs",
+              "RelativeToolTip": "Controllers\\EstadisticasReclutamientoController.cs",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-01-19T21:05:58.676Z",
+              "WhenOpened": "2026-01-21T22:20:01.818Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PersonalPortafolioVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Empleados\\PersonalPortafolioVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\Empleados\\PersonalPortafolioVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Empleados\\PersonalPortafolioVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\Empleados\\PersonalPortafolioVM.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAqwCkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T22:15:32.372Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\Index.cshtml",
-              "RelativeDocumentMoniker": "Views\\DatosReclutamientoes\\Index.cshtml",
-              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\Index.cshtml",
-              "RelativeToolTip": "Views\\DatosReclutamientoes\\Index.cshtml",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAiwGAAAAAyAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-19T23:11:11.934Z",
+              "Title": "DatosReclutamientoesController.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\DatosReclutamientoesController.cs",
+              "RelativeDocumentMoniker": "Controllers\\DatosReclutamientoesController.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\DatosReclutamientoesController.cs",
+              "RelativeToolTip": "Controllers\\DatosReclutamientoesController.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAuwJgAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T21:14:29.146Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EmpleadosController.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\EmpleadosController.cs",
+              "RelativeDocumentMoniker": "Controllers\\EmpleadosController.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\EmpleadosController.cs",
+              "RelativeToolTip": "Controllers\\EmpleadosController.cs",
+              "ViewState": "AgIAABwBAAAAAAAAAAAqwDYBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T21:24:06.91Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "_ReclutamientoDetailsPartial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\_ReclutamientoDetailsPartial.cshtml",
-              "RelativeDocumentMoniker": "Views\\DatosReclutamientoes\\_ReclutamientoDetailsPartial.cshtml",
-              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\_ReclutamientoDetailsPartial.cshtml",
-              "RelativeToolTip": "Views\\DatosReclutamientoes\\_ReclutamientoDetailsPartial.cshtml",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "Title": "_CreateCurso.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Empleados\\_CreateCurso.cshtml",
+              "RelativeDocumentMoniker": "Views\\Empleados\\_CreateCurso.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Empleados\\_CreateCurso.cshtml",
+              "RelativeToolTip": "Views\\Empleados\\_CreateCurso.cshtml",
+              "ViewState": "AgIAABUAAAAAAAAAAAAswD4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2026-01-19T23:08:34.431Z",
+              "WhenOpened": "2026-01-21T21:14:39.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "_ReclutamientoCrearPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\_ReclutamientoCrearPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\DatosReclutamientoes\\_ReclutamientoCrearPartial.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\_ReclutamientoCrearPartial.cshtml",
+              "RelativeToolTip": "Views\\DatosReclutamientoes\\_ReclutamientoCrearPartial.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-21T22:05:17.748Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "ReclutamientoOverlay.js",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlay.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\ReclutamientoOverlay.js",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\js\\ReclutamientoOverlay.js",
+              "RelativeToolTip": "wwwroot\\js\\ReclutamientoOverlay.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-21T22:05:33.362Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CursoCreateVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Empleados\\CursoCreateVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\Empleados\\CursoCreateVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Empleados\\CursoCreateVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\Empleados\\CursoCreateVM.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAxwBsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T20:46:21.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\DatosReclutamientoes\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\DatosReclutamientoes\\Index.cshtml",
+              "RelativeToolTip": "Views\\DatosReclutamientoes\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-21T21:08:18.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ReclutamientoIndexVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Reclutamiento\\ReclutamientoIndexVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\Reclutamiento\\ReclutamientoIndexVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Reclutamiento\\ReclutamientoIndexVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\Reclutamiento\\ReclutamientoIndexVM.cs",
+              "ViewState": "AgIAACkAAAAAAAAAAAAqwDsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T22:04:48.874Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ReclutamientoCrearVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\ReclutamientoCrearVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\ReclutamientoCrearVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\ReclutamientoCrearVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\ReclutamientoCrearVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-21T21:58:17.124Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "styleReclutamientoPartial.css",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\css\\styleReclutamientoPartial.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\styleReclutamientoPartial.css",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\css\\styleReclutamientoPartial.css",
+              "RelativeToolTip": "wwwroot\\css\\styleReclutamientoPartial.css",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAiwDEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2026-01-21T21:12:59.833Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Empleados\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Empleados\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Empleados\\Index.cshtml",
+              "RelativeToolTip": "Views\\Empleados\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-21T19:11:42.566Z",
               "EditorCaption": ""
             }
           ]

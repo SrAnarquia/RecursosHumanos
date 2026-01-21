@@ -21,6 +21,8 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<CatalogoNivel> CatalogoNivels { get; set; }
 
+    public virtual DbSet<CursosPersona> CursosPersonas { get; set; }
+
     public virtual DbSet<DatosReclutamiento> DatosReclutamientos { get; set; }
 
     public virtual DbSet<DatosReclutamientoReflejo> DatosReclutamientoReflejos { get; set; }
@@ -30,6 +32,8 @@ public partial class ApplicationDbContext : DbContext
     public virtual DbSet<Empresa> Empresas { get; set; }
 
     public virtual DbSet<Estatus> Estatuses { get; set; }
+
+    public virtual DbSet<EstatusCurso> EstatusCursos { get; set; }
 
     public virtual DbSet<Fuente> Fuentes { get; set; }
 
@@ -115,6 +119,32 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Nombre)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<CursosPersona>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__CursosPe__3214EC07689CEDE8");
+
+            entity.ToTable("CursosPersonas", "Entrenamiento");
+
+            entity.Property(e => e.Descripcion)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+            entity.Property(e => e.Diploma)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.FechaFinalizacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaInicio).HasColumnType("datetime");
+            entity.Property(e => e.NombreCurso)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.IdEstatusNavigation).WithMany(p => p.CursosPersonas)
+                .HasForeignKey(d => d.IdEstatus)
+                .HasConstraintName("FK_IdEstatus");
         });
 
         modelBuilder.Entity<DatosReclutamiento>(entity =>
@@ -249,6 +279,20 @@ public partial class ApplicationDbContext : DbContext
                 .IsUnicode(false)
                 .HasColumnName("Estatus");
             entity.Property(e => e.FechaCreación)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+        });
+
+        modelBuilder.Entity<EstatusCurso>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__EstatusC__3214EC07D79AF881");
+
+            entity.ToTable("EstatusCurso", "Entrenamiento");
+
+            entity.Property(e => e.Estatus)
+                .HasMaxLength(500)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
                 .HasDefaultValueSql("(getdate())")
                 .HasColumnType("datetime");
         });

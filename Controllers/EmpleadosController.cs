@@ -1,18 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Data.SqlClient;
+using RecursosHumanos.Models;
 using RecursosHumanos.Models.ViewModels.Empleados;
 using System.Data;
 
 public class EmpleadosController : Controller
 {
     private readonly IConfiguration _configuration;
+    private readonly ApplicationDbContext _context;
 
-    public EmpleadosController(IConfiguration configuration)
+    public EmpleadosController(IConfiguration configuration,ApplicationDbContext context)
     {
         _configuration = configuration;
+        _context = context;
     }
 
+    #region Index
     // ===================== INDEX =====================
     public IActionResult Index(PersonalListadoVM filtro, int pagina = 1)
     {
@@ -94,6 +98,7 @@ public class EmpleadosController : Controller
 
 
 
+
         // ===================== PAGINACIÓN =====================
         int totalRegistros = lista.Count;
         var datosPaginados = lista
@@ -120,4 +125,166 @@ public class EmpleadosController : Controller
 
         return View(vm);
     }
+    #endregion
+
+
+    #region Portafolio
+    public IActionResult Portafolio(int id)
+    {
+        var vm = new PersonalPortafolioVM();
+        vm.Cursos = new List<CursoPersonaVM>();
+
+        // ===================== PERSONA (Alarmas / LRdb) =====================
+        using (SqlConnection cn = new SqlConnection(
+            _configuration.GetConnectionString("AlertasConnection")))
+        {
+            using SqlCommand cmd = new SqlCommand("Empleado_DatosPorId", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdPersonal", id);
+
+            cn.Open();
+            using SqlDataReader dr = cmd.ExecuteReader();
+
+            if (dr.Read())
+            {
+                vm.IdPersonal = id;
+                vm.FotoPersonal = dr["foto_personal"] as byte[];
+                vm.Nombre = dr["nombre"].ToString();
+                vm.Departamento = dr["Departamento"].ToString();
+                vm.TipoEmpleado = dr["tipo_empleado"].ToString();
+                vm.Curp = dr["curp"].ToString();
+                vm.Telefono = dr["telefono"].ToString();
+                vm.Email = dr["email"].ToString();
+                vm.Estado = dr["estado"].ToString();
+            }
+        }
+
+        // ===================== CURSOS (DefaultConnection) =====================
+        using (SqlConnection cn = new SqlConnection(
+            _configuration.GetConnectionString("DefaultConnection")))
+        {
+            using SqlCommand cmd = new SqlCommand("Entrenamiento_PersonaCursos", cn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@IdPersonal", id);
+
+            cn.Open();
+            using SqlDataReader dr = cmd.ExecuteReader();
+
+            while (dr.Read())
+            {
+                vm.Cursos.Add(new CursoPersonaVM
+                {
+                    Id = Convert.ToInt32(dr["Id"]),
+                    NombreCurso = dr["NombreCurso"].ToString(),
+                    Descripcion = dr["Descripcion"].ToString(),
+                    FechaInicio = dr["FechaInicio"] as DateTime?,
+                    FechaFinalizacion = dr["FechaFinalizacion"] as DateTime?,
+                    Estatus = dr["Estatus"].ToString(),
+                    Diploma = dr["Diploma"].ToString()
+                });
+            }
+        }
+
+        // ===================== CREATE MODAL (LINQ / EF) =====================
+        var estatus = _context.EstatusCursos
+            .Select(x => new SelectListItem
+            {
+                Text = x.Estatus,
+                Value = x.Id.ToString()
+            })
+            .ToList();
+
+
+        vm.NuevoCurso = new CursoPersonaCreateVM
+        {
+            IdPersona = id
+        };
+
+        vm.NuevoCurso = new CursoPersonaCreateVM
+        {
+            IdPersona = id,
+            Estatus = _context.EstatusCursos
+         .Select(x => new SelectListItem
+         {
+             Text = x.Estatus,
+             Value = x.Id.ToString()
+         })
+         .ToList()
+        };
+
+
+        return View(vm);
+    }
+    #endregion
+
+
+    
+    #region CrearEmpleadoCurso GET (OVERLAY)
+    [HttpGet]
+    public IActionResult CreateCurso(int idPersona)
+    {
+        var estatus = _context.EstatusCursos
+            .Select(x => new SelectListItem
+            {
+                Text = x.Estatus,
+                Value = x.Id.ToString()
+            })
+            .ToList();
+
+        var vm = new CursoPersonaCreateVM
+        {
+            IdPersona = idPersona,
+            Estatus = estatus
+        };
+
+        return PartialView("_CreateCurso", vm);
+    }
+
+
+
+    #endregion
+
+    #region CrearEmpleadoCurso POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+   
+    public IActionResult CreateCurso(CursoPersonaCreateVM model)
+    {
+        // Traemos estatus para el dropdown siempre
+        model.Estatus = _context.EstatusCursos
+            .Select(x => new SelectListItem
+            {
+                Text = x.Estatus,
+                Value = x.Id.ToString()
+            }).ToList();
+
+        if (!ModelState.IsValid)
+        {
+            // Si hay errores, devolvemos el partial view
+            return PartialView("_CreateCurso", model);
+        }
+
+        _context.CursosPersonas.Add(new CursosPersona
+        {
+            IdPersona = model.IdPersona,
+            NombreCurso = model.NombreCurso,
+            Descripcion = model.Descripcion,
+            FechaInicio = model.FechaInicio,
+            FechaFinalizacion = model.FechaFinalizacion,
+            IdEstatus = model.IdEstatus.Value,
+            FechaCreacion = DateTime.Now
+        });
+
+        _context.SaveChanges();
+
+        // Si todo sale bien, devolvemos un success simple
+        return Json(new { success = true });
+    }
+
+
+
+    #endregion
+
+
+
 }

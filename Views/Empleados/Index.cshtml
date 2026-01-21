@@ -1,7 +1,7 @@
 ﻿@model RecursosHumanos.Models.ViewModels.Empleados.PersonalListadoVM
 
 @section Styles {
-    <link href="~/css/styleReclutamiento.css" rel="stylesheet" />
+    <link href="~/css/StyleReclutamiento.css" rel="stylesheet" />
     <link href="~/css/styleReclutamientoPartial.css" rel="stylesheet" />
 }
 
@@ -116,7 +116,8 @@
                                 <i class="bi bi-eye"></i>
                             </a>
 
-                            <a href="javascript:void(0)"
+                            <a asp-action="Portafolio"
+                               asp-route-id="@item.IdPersonal"
                                title="Portafolio">
                                 <i class="bi bi-folder"></i>
                             </a>

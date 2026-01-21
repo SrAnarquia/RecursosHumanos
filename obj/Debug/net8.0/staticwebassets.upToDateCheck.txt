@@ -1,7 +1,5 @@
 wwwroot\css\Login.css
 wwwroot\css\site.css
-wwwroot\css\StyleCatalogos.css
-wwwroot\css\StyleCatalogosPartial.css
 wwwroot\css\StyleReclutamiento.css
 wwwroot\css\styleReclutamientoPartial.css
 wwwroot\css\_Layout.css
@@ -71,3 +69,6 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
+wwwroot\css\StyleCatalogosPartial.css
+wwwroot\css\StyleCatalogos.css
+wwwroot\js\EmpleadoCursoOverlayCreate.js

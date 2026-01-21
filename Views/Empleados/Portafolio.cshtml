@@ -1,16 +1,99 @@
-﻿
+﻿@model RecursosHumanos.Models.ViewModels.Empleados.PersonalPortafolioVM
+
+@section Styles {
+    <link href="~/css/StyleReclutamiento.css" rel="stylesheet" />
+    <link href="~/css/styleReclutamientoPartial.css" rel="stylesheet" />
+}
 
 
+@section Scripts {
+    <script src="~/js/EmpleadoCursoOverlayCreate.js"></script>
+
+    <partial name="_ValidationScriptsPartial" />
+}
 
 
+<!-- ===================== PERSONA ===================== -->
+<div class="card mb-4 p-3">
+    <div class="d-flex align-items-center">
+        @if (Model.FotoPersonal != null)
+        {
+            var base64 = Convert.ToBase64String(Model.FotoPersonal);
+            <img src="data:image/jpeg;base64,@base64"
+                 class="rounded-circle me-3"
+                 style="width:70px;height:70px;object-fit:cover;" />
+        }
+        else
+        {
+            <i class="bi bi-person-circle fs-1 text-muted me-3"></i>
+        }
+
+        <div>
+            <h4 class="mb-1">@Model.Nombre</h4>
+            <div class="text-muted">@Model.Departamento | @Model.TipoEmpleado</div>
+            <div class="text-muted">@Model.Email | @Model.Telefono</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===================== ACCIONES ===================== -->
+<div class="d-flex justify-content-end gap-2 mb-3">
+    <button type="button"
+            class="btn btn-success"
+            onclick="CursoOverlay.open(@Model.IdPersonal)">
+        <i class="bi bi-plus-circle"></i> Agregar curso
+    </button>
+</div>
+
+<div id="modalCursosContainer"></div>
 
 
-
-
-
-
-
-
+<!-- ===================== CURSOS ===================== -->
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Curso</th>
+                <th>Descripción</th>
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Estatus</th>
+                <th class="text-center">Diploma</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.Cursos.Any())
+            {
+                foreach (var c in Model.Cursos)
+                {
+                    <tr>
+                        <td>@c.NombreCurso</td>
+                        <td>@c.Descripcion</td>
+                        <td>@c.FechaInicio?.ToShortDateString()</td>
+                        <td>@c.FechaFinalizacion?.ToShortDateString()</td>
+                        <td>
+                            <span class="badge bg-info">@c.Estatus</span>
+                        </td>
+                        <td class="text-center">
+                            @if (!string.IsNullOrEmpty(c.Diploma))
+                            {
+                                <i class="bi bi-award text-success"></i>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="6" class="text-center text-muted">
+                        Sin cursos asignados
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
 
 
 

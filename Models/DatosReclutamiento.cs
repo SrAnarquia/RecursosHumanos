@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace RecursosHumanos.Models;
 
@@ -30,8 +29,6 @@ public partial class DatosReclutamiento
 
     public int? IdReclutador { get; set; }
 
-    [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
     public DateTime FechaContacto { get; set; }
 
     public virtual Base? IdBaseNavigation { get; set; }
