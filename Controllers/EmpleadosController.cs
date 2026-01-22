@@ -250,6 +250,13 @@ public class EmpleadosController : Controller
    
     public IActionResult CreateCurso(CursoPersonaCreateVM model)
     {
+        var errores = ModelState
+            .Where(x => x.Value.Errors.Any())
+            .Select(x => new {
+                Campo = x.Key,
+                Errores = x.Value.Errors.Select(e => e.ErrorMessage)
+            });
+
         // Traemos estatus para el dropdown siempre
         model.Estatus = _context.EstatusCursos
             .Select(x => new SelectListItem

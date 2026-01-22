@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace RecursosHumanos.Models.ViewModels.Empleados
@@ -22,6 +23,7 @@ namespace RecursosHumanos.Models.ViewModels.Empleados
         [Required(ErrorMessage = "El estatus es obligatorio.")]
         public int? IdEstatus { get; set; }  // <-- nullable para poder validar
 
+        [ValidateNever] //
         public List<SelectListItem> Estatus { get; set; }
     }
 }

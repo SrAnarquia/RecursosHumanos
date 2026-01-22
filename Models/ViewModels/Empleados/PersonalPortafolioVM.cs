@@ -35,6 +35,10 @@ namespace RecursosHumanos.Models.ViewModels.Empleados
         public string Estatus { get; set; }
         public string Diploma { get; set; }
 
+        public string? FiltroCurso { get; set; }
+        public DateTime? FechaDesde { get; set; }
+        public DateTime? FechaHasta { get; set; }
+
 
 
     }

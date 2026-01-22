@@ -10,6 +10,7 @@
         </div>
 
         <form asp-action="CreateCurso" asp-controller="Empleados" method="post" id="formCurso">
+            @Html.AntiForgeryToken()
 
             <input type="hidden" asp-for="IdPersona" />
 

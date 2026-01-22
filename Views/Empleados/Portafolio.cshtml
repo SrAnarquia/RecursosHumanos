@@ -36,6 +36,37 @@
     </div>
 </div>
 
+<!-- ===================== FILTROS ===================== -->
+<div class="filter-card mb-4">
+    <form method="get" class="filters">
+
+        <input type="text"
+               name="Curso"
+               value="@Model.FiltroCurso"
+               placeholder="Nombre del curso" />
+
+        <input type="date"
+               name="FechaDesde"
+               value="@(Model.FechaDesde?.ToString("yyyy-MM-dd"))" />
+
+        <input type="date"
+               name="FechaHasta"
+               value="@(Model.FechaHasta?.ToString("yyyy-MM-dd"))" />
+
+        <button type="submit" class="btn btn-primary">
+            <i class="bi bi-search"></i> Filtrar
+        </button>
+
+        <a asp-action="Portafolio"
+           asp-route-id="@Model.IdPersonal"
+           class="btn btn-secondary">
+            <i class="bi bi-x-circle"></i> Limpiar
+        </a>
+
+    </form>
+</div>
+
+
 <!-- ===================== ACCIONES ===================== -->
 <div class="d-flex justify-content-end gap-2 mb-3">
     <button type="button"
