@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using System.ComponentModel.DataAnnotations;
 
 
 namespace RecursosHumanos.Models.ViewModels.Empleados
@@ -16,12 +17,22 @@ namespace RecursosHumanos.Models.ViewModels.Empleados
         public string Email { get; set; }
         public string Estado { get; set; }
 
+        public string? FiltroCurso { get; set; }
+        public DateTime? FechaDesde { get; set; }
+        public DateTime? FechaHasta { get; set; }
+
+
         // ===================== CURSOS =====================
         public List<CursoPersonaVM> Cursos { get; set; }
 
         public int IdEstatus { get; set; }
 
         public CursoPersonaCreateVM NuevoCurso { get; set; }
+
+        public int TotalPaginas { get; set; }
+
+
+        public int PaginaActual { get; set; }
 
     }
 
@@ -35,9 +46,8 @@ namespace RecursosHumanos.Models.ViewModels.Empleados
         public string Estatus { get; set; }
         public string Diploma { get; set; }
 
-        public string? FiltroCurso { get; set; }
-        public DateTime? FechaDesde { get; set; }
-        public DateTime? FechaHasta { get; set; }
+
+       
 
 
 

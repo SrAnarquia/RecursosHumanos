@@ -129,12 +129,19 @@ public class EmpleadosController : Controller
 
 
     #region Portafolio
-    public IActionResult Portafolio(int id)
+    public IActionResult Portafolio(int id,string? curso,DateTime? fechaDesde,DateTime? fechaHasta,int pagina = 1)
     {
-        var vm = new PersonalPortafolioVM();
-        vm.Cursos = new List<CursoPersonaVM>();
+        int pageSize = 10; // puedes ajustar el tamaño de página
 
-        // ===================== PERSONA (Alarmas / LRdb) =====================
+        var vm = new PersonalPortafolioVM
+        {
+            FiltroCurso = curso,
+            FechaDesde = fechaDesde,
+            FechaHasta = fechaHasta,
+            Cursos = new List<CursoPersonaVM>()
+        };
+
+        // ===================== PERSONA =====================
         using (SqlConnection cn = new SqlConnection(
             _configuration.GetConnectionString("AlertasConnection")))
         {
@@ -144,7 +151,6 @@ public class EmpleadosController : Controller
 
             cn.Open();
             using SqlDataReader dr = cmd.ExecuteReader();
-
             if (dr.Read())
             {
                 vm.IdPersonal = id;
@@ -159,7 +165,8 @@ public class EmpleadosController : Controller
             }
         }
 
-        // ===================== CURSOS (DefaultConnection) =====================
+        // ===================== CURSOS =====================
+        var cursosTemp = new List<CursoPersonaVM>();
         using (SqlConnection cn = new SqlConnection(
             _configuration.GetConnectionString("DefaultConnection")))
         {
@@ -169,10 +176,9 @@ public class EmpleadosController : Controller
 
             cn.Open();
             using SqlDataReader dr = cmd.ExecuteReader();
-
             while (dr.Read())
             {
-                vm.Cursos.Add(new CursoPersonaVM
+                cursosTemp.Add(new CursoPersonaVM
                 {
                     Id = Convert.ToInt32(dr["Id"]),
                     NombreCurso = dr["NombreCurso"].ToString(),
@@ -185,40 +191,54 @@ public class EmpleadosController : Controller
             }
         }
 
-        // ===================== CREATE MODAL (LINQ / EF) =====================
-        var estatus = _context.EstatusCursos
-            .Select(x => new SelectListItem
-            {
-                Text = x.Estatus,
-                Value = x.Id.ToString()
-            })
+        // ===================== FILTROS =====================
+        if (!string.IsNullOrEmpty(curso))
+        {
+            cursosTemp = cursosTemp
+                .Where(c => c.NombreCurso.Contains(curso, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
+        if (fechaDesde.HasValue)
+            cursosTemp = cursosTemp
+                .Where(c => c.FechaInicio >= fechaDesde.Value)
+                .ToList();
+
+        if (fechaHasta.HasValue)
+            cursosTemp = cursosTemp
+                .Where(c => c.FechaFinalizacion <= fechaHasta.Value)
+                .ToList();
+
+        // ===================== PAGINACIÓN =====================
+        int totalRegistros = cursosTemp.Count;
+        vm.TotalPaginas = (int)Math.Ceiling(totalRegistros / (double)pageSize);
+        vm.PaginaActual = pagina;
+
+        vm.Cursos = cursosTemp
+            .Skip((pagina - 1) * pageSize)
+            .Take(pageSize)
             .ToList();
 
-
-        vm.NuevoCurso = new CursoPersonaCreateVM
-        {
-            IdPersona = id
-        };
-
+        // ===================== NUEVO CURSO (OVERLAY) =====================
         vm.NuevoCurso = new CursoPersonaCreateVM
         {
             IdPersona = id,
             Estatus = _context.EstatusCursos
-         .Select(x => new SelectListItem
-         {
-             Text = x.Estatus,
-             Value = x.Id.ToString()
-         })
-         .ToList()
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Estatus,
+                    Value = x.Id.ToString()
+                })
+                .ToList()
         };
-
 
         return View(vm);
     }
+
     #endregion
 
 
-    
+    #region Creates
     #region CrearEmpleadoCurso GET (OVERLAY)
     [HttpGet]
     public IActionResult CreateCurso(int idPersona)
@@ -247,30 +267,47 @@ public class EmpleadosController : Controller
     #region CrearEmpleadoCurso POST
     [HttpPost]
     [ValidateAntiForgeryToken]
-   
     public IActionResult CreateCurso(CursoPersonaCreateVM model)
     {
-        var errores = ModelState
-            .Where(x => x.Value.Errors.Any())
-            .Select(x => new {
-                Campo = x.Key,
-                Errores = x.Value.Errors.Select(e => e.ErrorMessage)
-            });
-
-        // Traemos estatus para el dropdown siempre
+        // Traemos siempre el dropdown de estatus
         model.Estatus = _context.EstatusCursos
             .Select(x => new SelectListItem
             {
                 Text = x.Estatus,
                 Value = x.Id.ToString()
-            }).ToList();
+            })
+            .ToList();
 
+        // Validación de modelo
         if (!ModelState.IsValid)
         {
-            // Si hay errores, devolvemos el partial view
             return PartialView("_CreateCurso", model);
         }
 
+        string diplomaPath = null;
+
+        // ===================== GUARDAR ARCHIVO =====================
+        if (model.DiplomaFile != null && model.DiplomaFile.Length > 0)
+        {
+            // Carpeta dentro de wwwroot
+            string uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/FileUploaded");
+            if (!Directory.Exists(uploadsFolder))
+                Directory.CreateDirectory(uploadsFolder);
+
+            // Nombre único para evitar colisiones
+            string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(model.DiplomaFile.FileName);
+            string filePath = Path.Combine(uploadsFolder, uniqueFileName);
+
+            using (var fileStream = new FileStream(filePath, FileMode.Create))
+            {
+                model.DiplomaFile.CopyTo(fileStream);
+            }
+
+            // Guardamos ruta relativa para la base de datos
+            diplomaPath = "/FileUploaded/" + uniqueFileName;
+        }
+
+        // ===================== GUARDAR EN DB =====================
         _context.CursosPersonas.Add(new CursosPersona
         {
             IdPersona = model.IdPersona,
@@ -279,12 +316,97 @@ public class EmpleadosController : Controller
             FechaInicio = model.FechaInicio,
             FechaFinalizacion = model.FechaFinalizacion,
             IdEstatus = model.IdEstatus.Value,
+            Diploma = diplomaPath, // <-- ruta guardada
             FechaCreacion = DateTime.Now
         });
 
         _context.SaveChanges();
 
-        // Si todo sale bien, devolvemos un success simple
+        // Retornar éxito al overlay
+        return Json(new { success = true });
+    }
+
+
+    #endregion
+
+    #endregion
+
+
+    #region Edits
+
+
+    #region Edit GET 
+    [HttpGet]
+    public IActionResult EditCurso(int id)
+    {
+        var curso = _context.CursosPersonas.FirstOrDefault(x => x.Id == id);
+        if (curso == null) return NotFound();
+
+        var vm = new CursoPersonaEditVM
+        {
+            Id = curso.Id,
+            IdPersona = curso.IdPersona.Value,
+            NombreCurso = curso.NombreCurso,
+            Descripcion = curso.Descripcion,
+            FechaInicio = curso.FechaInicio,
+            FechaFinalizacion = curso.FechaFinalizacion,
+            IdEstatus = curso.IdEstatus,
+            Diploma = curso.Diploma,
+            Estatus = _context.EstatusCursos
+                .Select(x => new SelectListItem
+                {
+                    Text = x.Estatus,
+                    Value = x.Id.ToString()
+                }).ToList()
+        };
+
+        return PartialView("_EditCurso", vm);
+    }
+
+    #endregion
+
+
+    #region Edit POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult EditCurso(CursoPersonaEditVM model)
+    {
+        model.Estatus = _context.EstatusCursos
+            .Select(x => new SelectListItem
+            {
+                Text = x.Estatus,
+                Value = x.Id.ToString()
+            }).ToList();
+
+        if (!ModelState.IsValid)
+            return PartialView("_EditCurso", model);
+
+        var curso = _context.CursosPersonas.FirstOrDefault(x => x.Id == model.Id);
+        if (curso == null) return NotFound();
+
+        // Actualizar archivo si viene uno nuevo
+        if (model.DiplomaFile != null && model.DiplomaFile.Length > 0)
+        {
+            string uploads = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/FileUploaded");
+            Directory.CreateDirectory(uploads);
+
+            string fileName = Guid.NewGuid() + Path.GetExtension(model.DiplomaFile.FileName);
+            string path = Path.Combine(uploads, fileName);
+
+            using var fs = new FileStream(path, FileMode.Create);
+            model.DiplomaFile.CopyTo(fs);
+
+            curso.Diploma = "/FileUploaded/" + fileName;
+        }
+
+        curso.NombreCurso = model.NombreCurso;
+        curso.Descripcion = model.Descripcion;
+        curso.FechaInicio = model.FechaInicio;
+        curso.FechaFinalizacion = model.FechaFinalizacion;
+        curso.IdEstatus = model.IdEstatus.Value;
+
+        _context.SaveChanges();
+
         return Json(new { success = true });
     }
 
@@ -292,6 +414,105 @@ public class EmpleadosController : Controller
 
     #endregion
 
+    #endregion
 
 
+    #region Deletes
+
+    #region Delete GET
+
+    [HttpGet]
+    public IActionResult DeleteCurso(int id)
+    {
+        var curso = (from c in _context.CursosPersonas
+                     join e in _context.EstatusCursos
+                         on c.IdEstatus equals e.Id
+                     where c.Id == id
+                     select new CursoPersonaDeleteVM
+                     {
+                         Id = c.Id,
+                         IdPersona = c.IdPersona.Value,
+                         NombreCurso = c.NombreCurso,
+                         Descripcion = c.Descripcion,
+                         FechaInicio = c.FechaInicio,
+                         FechaFinalizacion = c.FechaFinalizacion,
+                         Estatus = e.Estatus
+                     }).FirstOrDefault();
+
+        if (curso == null)
+            return NotFound();
+
+        return PartialView("_DeleteCurso", curso);
+    }
+
+
+    #endregion
+
+
+
+    #region Delete POST
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public IActionResult DeleteCurso(CursoPersonaDeleteVM model)
+    {
+        var curso = _context.CursosPersonas.FirstOrDefault(x => x.Id == model.Id);
+        if (curso == null)
+            return NotFound();
+
+        // 🔥 eliminar archivo si existe
+        if (!string.IsNullOrEmpty(curso.Diploma))
+        {
+            string path = Path.Combine(
+                Directory.GetCurrentDirectory(),
+                "wwwroot",
+                curso.Diploma.TrimStart('/')
+            );
+
+            if (System.IO.File.Exists(path))
+                System.IO.File.Delete(path);
+        }
+
+        _context.CursosPersonas.Remove(curso);
+        _context.SaveChanges();
+
+        return Json(new { success = true });
+    }
+
+
+    #endregion
+
+    #endregion
+
+
+    #region Details
+
+    #region Details
+
+    [HttpGet]
+    public IActionResult DetailsCurso(int id)
+    {
+        var curso = (from c in _context.CursosPersonas
+                     join e in _context.EstatusCursos
+                         on c.IdEstatus equals e.Id
+                     where c.Id == id
+                     select new CursoPersonaDetailsVM
+                     {
+                         Id = c.Id,
+                         NombreCurso = c.NombreCurso,
+                         Descripcion = c.Descripcion,
+                         FechaInicio = c.FechaInicio,
+                         FechaFinalizacion = c.FechaFinalizacion,
+                         Estatus = e.Estatus,
+                         Diploma = c.Diploma
+                     }).FirstOrDefault();
+
+        if (curso == null)
+            return NotFound();
+
+        return PartialView("_DetailsCurso", curso);
+    }
+
+    #endregion
+
+    #endregion
 }

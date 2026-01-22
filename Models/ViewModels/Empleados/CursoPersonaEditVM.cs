@@ -4,8 +4,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RecursosHumanos.Models.ViewModels.Empleados
 {
-    public class CursoPersonaCreateVM
+    public class CursoPersonaEditVM
     {
+        public int Id { get; set; }          // 👈 Id del curso
         public int IdPersona { get; set; }
 
         [Required(ErrorMessage = "El nombre del curso es obligatorio.")]
@@ -21,16 +22,16 @@ namespace RecursosHumanos.Models.ViewModels.Empleados
         public DateTime? FechaFinalizacion { get; set; }
 
         [Required(ErrorMessage = "El estatus es obligatorio.")]
-        public int? IdEstatus { get; set; }  // <-- nullable para poder validar
+        public int? IdEstatus { get; set; }
 
-        [ValidateNever] 
+        [ValidateNever]
         public List<SelectListItem> Estatus { get; set; }
 
         [ValidateNever]
-        public string Diploma { get; set; } // ruta en DB
+        public string Diploma { get; set; }   // ruta actual
 
         [ValidateNever]
-        public IFormFile DiplomaFile { get; set; } // archivo subido
-
+        public IFormFile DiplomaFile { get; set; } // nuevo archivo (opcional)
     }
+
 }
