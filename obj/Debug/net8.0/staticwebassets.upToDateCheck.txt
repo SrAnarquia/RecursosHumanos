@@ -5,6 +5,7 @@ wwwroot\css\StyleCatalogosPartial.css
 wwwroot\css\StyleCrearCurso.css
 wwwroot\css\StyleReclutamiento.css
 wwwroot\css\styleReclutamientoPartial.css
+wwwroot\css\StyleReclutamientoPartialDetails.css
 wwwroot\css\_Layout.css
 wwwroot\favicon.ico
 wwwroot\FileUploaded\9e89855f-7b2a-44dc-8d39-4221e362abb9.png
@@ -82,4 +83,3 @@ wwwroot\lib\jquery\dist\jquery.js
 wwwroot\lib\jquery\dist\jquery.min.js
 wwwroot\lib\jquery\dist\jquery.min.map
 wwwroot\lib\jquery\LICENSE.txt
-wwwroot\css\StyleReclutamientoPartialDetails.css
