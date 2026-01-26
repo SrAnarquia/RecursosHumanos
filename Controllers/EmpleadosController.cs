@@ -10,7 +10,7 @@ public class EmpleadosController : Controller
     private readonly IConfiguration _configuration;
     private readonly ApplicationDbContext _context;
 
-    public EmpleadosController(IConfiguration configuration,ApplicationDbContext context)
+    public EmpleadosController(IConfiguration configuration, ApplicationDbContext context)
     {
         _configuration = configuration;
         _context = context;
@@ -129,7 +129,7 @@ public class EmpleadosController : Controller
 
 
     #region Portafolio
-    public IActionResult Portafolio(int id,string? curso,DateTime? fechaDesde,DateTime? fechaHasta,int pagina = 1)
+    public IActionResult Portafolio(int id, string? curso, DateTime? fechaDesde, DateTime? fechaHasta, int pagina = 1)
     {
         int pageSize = 10; // puedes ajustar el tamaño de página
 
@@ -237,6 +237,9 @@ public class EmpleadosController : Controller
 
     #endregion
 
+    #region Incidentes
+
+    #endregion
 
     #region Creates
     #region CrearEmpleadoCurso GET (OVERLAY)

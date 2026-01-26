@@ -1,12 +1,156 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\controllers\\vacacionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:controllers\\vacacionscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\vacaciones\\vacacioncreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\vacaciones\\vacacioncreatevm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\viewmodels\\vacaciones\\vacacionindexvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\viewmodels\\vacaciones\\vacacionindexvm.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\vacacions\\_vacacionescrearpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\vacacions\\_vacacionescrearpartial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\wwwroot\\js\\vacacionesoverlaycreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:wwwroot\\js\\vacacionesoverlaycreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\models\\vacacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:models\\vacacion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\vacacions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\vacacions\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|c:\\users\\jonathan corpus\\desktop\\nuevos desarrollos\\desarrollos\\visual studio\\recursoshumanos\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{73598716-5CD1-B9B7-BD12-0AA383AC7C83}|RecursosHumanos.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "VacacionesOverlayCreate.js",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\js\\VacacionesOverlayCreate.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\VacacionesOverlayCreate.js",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\wwwroot\\js\\VacacionesOverlayCreate.js",
+              "RelativeToolTip": "wwwroot\\js\\VacacionesOverlayCreate.js",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAwwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2026-01-26T22:26:39.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_VacacionesCrearPartial.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Vacacions\\_VacacionesCrearPartial.cshtml",
+              "RelativeDocumentMoniker": "Views\\Vacacions\\_VacacionesCrearPartial.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Vacacions\\_VacacionesCrearPartial.cshtml",
+              "RelativeToolTip": "Views\\Vacacions\\_VacacionesCrearPartial.cshtml",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAwwEkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-26T22:23:48.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Vacacion.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\Vacacion.cs",
+              "RelativeDocumentMoniker": "Models\\Vacacion.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\Vacacion.cs",
+              "RelativeToolTip": "Models\\Vacacion.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAUwCYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T21:52:47.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "VacacionIndexVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Vacaciones\\VacacionIndexVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\Vacaciones\\VacacionIndexVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Vacaciones\\VacacionIndexVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\Vacaciones\\VacacionIndexVM.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwA4AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T21:52:16.614Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Vacacions\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Vacacions\\Index.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Vacacions\\Index.cshtml",
+              "RelativeToolTip": "Views\\Vacacions\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-26T18:44:38.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "VacacionsController.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\VacacionsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\VacacionsController.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Controllers\\VacacionsController.cs*",
+              "RelativeToolTip": "Controllers\\VacacionsController.cs*",
+              "ViewState": "AgIAALUAAAAAAAAAAAAiwL4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T18:39:11.295Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "VacacionCreateVM.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Vacaciones\\VacacionCreateVM.cs",
+              "RelativeDocumentMoniker": "Models\\ViewModels\\Vacaciones\\VacacionCreateVM.cs",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Models\\ViewModels\\Vacaciones\\VacacionCreateVM.cs",
+              "RelativeToolTip": "Models\\ViewModels\\Vacaciones\\VacacionCreateVM.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-26T23:09:41.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\Jonathan Corpus\\Desktop\\Nuevos Desarrollos\\Desarrollos\\Visual Studio\\RecursosHumanos\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAADkAAAAAAAAAAAAAAGMAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2026-01-26T14:19:55.173Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

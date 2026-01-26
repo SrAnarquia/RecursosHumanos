@@ -182,6 +182,34 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVXN1YXJpb3NcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Aprobacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXEFwcm9iYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/Vacacions/_VacacionesCrearPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmFjYWNpb25zXF9WYWNhY2lvbmVzQ3JlYXJQYXJ0aWFsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Jonathan Corpus/Desktop/Nuevos Desarrollos/Desarrollos/Visual Studio/RecursosHumanos/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

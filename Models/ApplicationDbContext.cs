@@ -15,6 +15,8 @@ public partial class ApplicationDbContext : DbContext
     {
     }
 
+    public virtual DbSet<Aprobacion> Aprobacions { get; set; }
+
     public virtual DbSet<Base> Bases { get; set; }
 
     public virtual DbSet<CatalogoCurso> CatalogoCursos { get; set; }
@@ -39,6 +41,8 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<Posicion> Posicions { get; set; }
 
+    public virtual DbSet<Razone> Razones { get; set; }
+
     public virtual DbSet<Reclutador> Reclutadors { get; set; }
 
     public virtual DbSet<Sexo> Sexos { get; set; }
@@ -49,11 +53,24 @@ public partial class ApplicationDbContext : DbContext
 
     public virtual DbSet<UsuarioEspejo> UsuarioEspejos { get; set; }
 
+    public virtual DbSet<Vacacion> Vacacions { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         => optionsBuilder.UseSqlServer("Name=DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<Aprobacion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Aprobaci__3214EC07B174EE6D");
+
+            entity.ToTable("Aprobacion", "Vacaciones");
+
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+        });
+
         modelBuilder.Entity<Base>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Base__3214EC074BC0B040");
@@ -327,6 +344,17 @@ public partial class ApplicationDbContext : DbContext
                 .HasColumnName("Posicion");
         });
 
+        modelBuilder.Entity<Razone>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Razones__3214EC07A45EC4A3");
+
+            entity.ToTable("Razones", "Vacaciones");
+
+            entity.Property(e => e.Razon)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+        });
+
         modelBuilder.Entity<Reclutador>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Reclutad__3214EC0739300128");
@@ -421,6 +449,36 @@ public partial class ApplicationDbContext : DbContext
             entity.Property(e => e.Usuario)
                 .HasMaxLength(255)
                 .IsUnicode(false);
+        });
+
+        modelBuilder.Entity<Vacacion>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Vacacion__3214EC075A11C7B0");
+
+            entity.ToTable("Vacacion", "Vacaciones");
+
+            entity.Property(e => e.Departamento)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.Detalles)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+            entity.Property(e => e.FechaCreacion)
+                .HasDefaultValueSql("(getdate())")
+                .HasColumnType("datetime");
+            entity.Property(e => e.FechaFinalizacion).HasColumnType("datetime");
+            entity.Property(e => e.FechaInicio).HasColumnType("datetime");
+            entity.Property(e => e.Nombre)
+                .HasMaxLength(255)
+                .IsUnicode(false);
+
+            entity.HasOne(d => d.IdAprobadoNavigation).WithMany(p => p.Vacacions)
+                .HasForeignKey(d => d.IdAprobado)
+                .HasConstraintName("FK_APROBACIONES");
+
+            entity.HasOne(d => d.IdRazonNavigation).WithMany(p => p.Vacacions)
+                .HasForeignKey(d => d.IdRazon)
+                .HasConstraintName("FK_RAZONES");
         });
 
         OnModelCreatingPartial(modelBuilder);

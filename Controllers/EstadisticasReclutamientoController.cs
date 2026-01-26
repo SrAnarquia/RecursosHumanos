@@ -43,10 +43,18 @@ namespace RecursosHumanos.Controllers
                 TotalNoContratados = datos.Count(x => x.IdEstatusNavigation.Estatus1 != "CONTRATADO"),
 
                 RazonesNoContratacion = datos
+
                     .Where(x => x.IdEstatusNavigation.Estatus1 != "CONTRATADO")
-                    .GroupBy(x => x.Comentarios)
-                    .Where(x => !string.IsNullOrWhiteSpace(x.Key))
-                    .ToDictionary(x => x.Key, x => x.Count()),
+                    .Where(x => !string.IsNullOrWhiteSpace(x.Comentarios))
+                    .GroupBy(x => x.Comentarios.Trim())
+                    .Select(g => new
+                    {
+                        Razon = g.Key,
+                        Total = g.Count()
+                    })
+                    .OrderByDescending(x => x.Total)
+                    .Take(5)
+                    .ToDictionary(x => x.Razon, x => x.Total),
 
                 // ===== AÑOS FIJOS =====
                 Anios = Enumerable.Range(2025, 4)
